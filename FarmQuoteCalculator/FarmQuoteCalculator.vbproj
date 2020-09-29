@@ -117,7 +117,7 @@
     </Compile>
     <Compile Include="Plot.vb" />
     <Compile Include="Proposal.vb" />
-    <Compile Include="RatingEnum.vb" />
+    <Compile Include="EnumCollection.vb" />
     <Compile Include="Region.vb" />
     <Compile Include="TraditionalFarm.vb" />
   </ItemGroup>
