@@ -13,18 +13,30 @@ Option Explicit On
 Option Infer Off
 
 Public Class Proposal
+    Private _QuoteID As String
     Private _Region As Region
     Private _FoodQuota As Integer
     Private _IsBudgetRestricted As Boolean
     Private _Farms() As Farm
 
     Public Sub New(ByRef region As Region, ByVal isBudgetRestricted As Boolean)
+        _QuoteID = GenerateQuoteID()
         _Region = region
         _IsBudgetRestricted = isBudgetRestricted
         _FoodQuota = region.CalculateFoodQuota()
         _Farms = CalculateFarmsToConstruct()
     End Sub
 
+    Private Function GenerateQuoteID() As String
+        'Easy - use the date time numbers to form the quote ID
+        Return "TODO"
+    End Function
+
+    Public ReadOnly Property QuoteID() As String
+        Get
+            Return _QuoteID
+        End Get
+    End Property
 
     Public ReadOnly Property GivenRegion() As Region
         Get
