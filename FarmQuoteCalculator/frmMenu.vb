@@ -8,6 +8,10 @@
 ' Class name: frmMenu
 ' *****************************************************************
 
+Option Strict On
+Option Explicit On
+Option Infer Off
+
 Public Class frmMenu
     Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
