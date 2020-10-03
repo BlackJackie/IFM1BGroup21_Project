@@ -17,4 +17,9 @@ Public Class EnumCollection
         HIGH
         LOW
     End Enum
+
+    Public Enum FarmType
+        HYDROPONIC
+        TRADITIONAL
+    End Enum
 End Class

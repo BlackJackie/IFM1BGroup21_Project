@@ -30,4 +30,8 @@ Public Class TraditionalFarm
     Public Overrides Function GetFarmType() As String
         Return "Traditional"
     End Function
+
+    Public Overrides Function GetFarmTypeEnum() As EnumCollection.FarmType
+        Return EnumCollection.FarmType.TRADITIONAL
+    End Function
 End Class

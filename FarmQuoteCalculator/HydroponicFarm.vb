@@ -29,4 +29,8 @@ Public Class HydroponicFarm
     Public Overrides Function GetFarmType() As String
         Return "Hydroponic"
     End Function
+
+    Public Overrides Function GetFarmTypeEnum() As EnumCollection.FarmType
+        Return EnumCollection.FarmType.HYDROPONIC
+    End Function
 End Class

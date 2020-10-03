@@ -31,6 +31,7 @@ Public Class Proposal
     'File storage 
     Private Function GenerateQuoteID() As String
         'Easy - use the date time numbers to form the quote ID
+        Throw New NotImplementedException()
         Return "TODO"
     End Function
 
@@ -72,32 +73,92 @@ Public Class Proposal
         Dim index As Integer
 
         For index = 0 To numFarms - 1
-            total_cost = total_cost + Farm(index).Cost
+            total_cost += Farm(index).Cost
         Next
 
-        Return total_cost;
+        Return total_cost
     End Function
 
     Public Function GetTotalCostTraditional() As Double
-        Throw New NotImplementedException()
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim total_cost As Double = 0
+
+        Dim currentFarm As Farm
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            currentFarm = Farm(index)
+            If (currentFarm.GetFarmTypeEnum() = EnumCollection.FarmType.TRADITIONAL) Then
+                total_cost += currentFarm.Cost
+            End If
+        Next
+
+        Return total_cost
     End Function
 
     Public Function GetTotalCostHydroponic() As Double
-        Throw New NotImplementedException()
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim total_cost As Double = 0
+
+        Dim currentFarm As Farm
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            currentFarm = Farm(index)
+            If (currentFarm.GetFarmTypeEnum() = EnumCollection.FarmType.HYDROPONIC) Then
+                total_cost += currentFarm.Cost
+            End If
+        Next
+
+        Return total_cost
     End Function
 
 
     'Fulfilled Food Quota
     Public Function GetFulfilledFoodQuota() As Double
-        Throw New NotImplementedException()
+        Dim total_charity_food As Double = 0
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            total_charity_food += Farm(index).GetCharityYield()
+        Next
+
+        Return total_charity_food
     End Function
 
     Public Function GetFulfilledFoodQuotaByTraditional() As Double
-        Throw New NotImplementedException()
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim total_charity_food As Double = 0
+
+        Dim currentFarm As Farm
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            currentFarm = Farm(index)
+            If (currentFarm.GetFarmTypeEnum() = EnumCollection.FarmType.TRADITIONAL) Then
+                total_charity_food += currentFarm.GetCharityYield()
+            End If
+        Next
+
+        Return total_charity_food
     End Function
 
     Public Function GetFulfilledFoodQuotaByHydroponic() As Double
-        Throw New NotImplementedException()
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim total_charity_food As Double = 0
+
+        Dim currentFarm As Farm
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            currentFarm = Farm(index)
+            If (currentFarm.GetFarmTypeEnum() = EnumCollection.FarmType.HYDROPONIC) Then
+                total_charity_food += currentFarm.GetCharityYield()
+            End If
+        Next
+
+        Return total_charity_food
     End Function
 
 
@@ -107,39 +168,177 @@ Public Class Proposal
     End Function
 
     Public Function GetTotalTraditionalFarms() As Integer
-        Throw New NotImplementedException()
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim numTraditionalFarms As Integer = 0
+
+        Dim currentFarm As Farm
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            currentFarm = Farm(index)
+            If (currentFarm.GetFarmTypeEnum() = EnumCollection.FarmType.TRADITIONAL) Then
+                numTraditionalFarms += 1
+            End If
+        Next
+
+        Return numTraditionalFarms
     End Function
 
     Public Function GetTotalHydroponicFarms() As Integer
-        Throw New NotImplementedException()
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim numHydroponicFarms As Integer = 0
+
+        Dim currentFarm As Farm
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            currentFarm = Farm(index)
+            If (currentFarm.GetFarmTypeEnum() = EnumCollection.FarmType.HYDROPONIC) Then
+                numHydroponicFarms += 1
+            End If
+        Next
+
+        Return numHydroponicFarms
     End Function
 
 
     'Yield of Farms
-    Public Function GetTotalYieldOfFarms() As Integer
-        Throw New NotImplementedException()
+    Public Function GetTotalYieldOfFarms() As Double
+        Dim total_food As Double = 0
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            total_food += Farm(index).Yield
+        Next
+
+        Return total_food
     End Function
 
-    Public Function GetTotalYieldOfTraditionalFarms() As Integer
-        Throw New NotImplementedException()
+    Public Function GetTotalYieldOfTraditionalFarms() As Double
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim total_food As Double = 0
+
+        Dim currentFarm As Farm
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            currentFarm = Farm(index)
+            If (currentFarm.GetFarmTypeEnum() = EnumCollection.FarmType.TRADITIONAL) Then
+                total_food += currentFarm.Yield
+            End If
+        Next
+
+        Return total_food
     End Function
 
-    Public Function GetTotalYieldHydroponicFarms() As Integer
-        Throw New NotImplementedException()
+    Public Function GetTotalYieldHydroponicFarms() As Double
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim total_food As Double = 0
+
+        Dim currentFarm As Farm
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            currentFarm = Farm(index)
+            If (currentFarm.GetFarmTypeEnum() = EnumCollection.FarmType.HYDROPONIC) Then
+                total_food += currentFarm.Yield
+            End If
+        Next
+
+        Return total_food
     End Function
 
 
     'Size of Farms
-    Public Function GetTotalSizeOfFarms() As Integer
-        Throw New NotImplementedException()
+    Public Function GetTotalSizeOfFarms() As Double
+        Dim total_size As Double = 0
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            total_size += Farm(index).Size
+        Next
+
+        Return total_size
     End Function
 
-    Public Function GetTotalSizeOfTraditionalFarms() As Integer
-        Throw New NotImplementedException()
+    Public Function GetTotalSizeOfTraditionalFarms() As Double
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim total_size As Double = 0
+
+        Dim currentFarm As Farm
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            currentFarm = Farm(index)
+            If (currentFarm.GetFarmTypeEnum() = EnumCollection.FarmType.TRADITIONAL) Then
+                total_size += currentFarm.Size
+            End If
+        Next
+
+        Return total_size
     End Function
 
-    Public Function GetTotalSizeHydroponicFarms() As Integer
-        Throw New NotImplementedException()
+    Public Function GetTotalSizeHydroponicFarms() As Double
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim total_size As Double = 0
+
+        Dim currentFarm As Farm
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            currentFarm = Farm(index)
+            If (currentFarm.GetFarmTypeEnum() = EnumCollection.FarmType.HYDROPONIC) Then
+                total_size += currentFarm.Size
+            End If
+        Next
+
+        Return total_size
+    End Function
+
+
+    'Clone a Seperate Farm Array
+    Private Function GetTraditionalFarms() As Farm()
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim numTraditionalFarms As Integer = GetTotalTraditionalFarms()
+
+        Dim traditionalFarms(numTraditionalFarms) As Farm
+        Dim currentFarm As Farm
+
+        Dim traditional_index As Integer = 0
+        Dim general_index As Integer
+
+        For general_index = 0 To numFarms - 1
+            currentFarm = Farm(general_index)
+            If (currentFarm.GetFarmTypeEnum() = EnumCollection.FarmType.TRADITIONAL) Then
+                traditionalFarms(traditional_index) = currentFarm
+                traditional_index = traditional_index + 1
+            End If
+        Next
+
+        Return traditionalFarms
+    End Function
+
+    Private Function GetHydroponicFarms() As Farm()
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim numHydroponicFarms As Integer = GetTotalTraditionalFarms()
+
+        Dim hydroponicFarms(numHydroponicFarms) As Farm
+        Dim currentFarm As Farm
+
+        Dim hydroponic_index As Integer = 0
+        Dim general_index As Integer
+
+        For general_index = 0 To numFarms - 1
+            currentFarm = Farm(general_index)
+            If (currentFarm.GetFarmTypeEnum() = EnumCollection.FarmType.HYDROPONIC) Then
+                hydroponicFarms(hydroponic_index) = currentFarm
+                hydroponic_index = hydroponic_index + 1
+            End If
+        Next
+
+        Return hydroponicFarms
     End Function
 
 

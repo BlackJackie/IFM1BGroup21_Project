@@ -55,6 +55,7 @@ Public MustInherit Class Farm
     Public MustOverride Sub CalculateYield()
     Public MustOverride Sub CalculateConstructionCost()
     Public MustOverride Function GetFarmType() As String
+    Public MustOverride Function GetFarmTypeEnum() As EnumCollection.FarmType
 
 
     'Methods
