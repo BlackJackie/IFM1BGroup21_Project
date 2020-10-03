@@ -18,9 +18,9 @@ Public Class frmQuote
 
 
     'Constructors
-    Public Sub New(ByRef region As Region, ByVal isBudgetRestricted As Boolean)
+    Public Sub New(ByRef region As Region)
         InitializeComponent()
-        _proposal = New Proposal(region, isBudgetRestricted)
+        _proposal = New Proposal(region, True)
     End Sub
 
     Public Sub New(ByRef proposal As Proposal)
