@@ -67,7 +67,15 @@ Public Class Proposal
 
     'Total Cost
     Public Function GetTotalCost() As Double
-        Throw New NotImplementedException()
+        Dim total_cost As Double = 0
+        Dim numFarms As Integer = GetTotalFarms()
+        Dim index As Integer
+
+        For index = 0 To numFarms - 1
+            total_cost = total_cost + Farm(index).Cost
+        Next
+
+        Return total_cost;
     End Function
 
     Public Function GetTotalCostTraditional() As Double

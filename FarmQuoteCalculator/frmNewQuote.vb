@@ -244,7 +244,7 @@ Public Class frmNewQuote
             grdPlots.Rows = (numPlots) + 1
             loadHeaders()
 
-            For index = 0 To numPlots
+            For index = 0 To numPlots - 1
                 plot = _region.Plots(index)
                 setCell(index + 1, 0, plot.Description)
                 setCell(index + 1, 1, CStr(plot.SurfaceArea))

@@ -148,7 +148,7 @@ Public Class frmQuote
             grdFarms.Rows = (numFarms) + 1
             loadFarmHeaders()
 
-            For index = 0 To numFarms
+            For index = 0 To numFarms - 1
                 farm = _proposal.Farm(index)
                 setFarmCell(index + 1, 0, farm.GetFarmType())
                 setFarmCell(index + 1, 1, farm.Plot.Description)
