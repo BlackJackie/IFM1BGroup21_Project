@@ -19,6 +19,7 @@ Public Class Proposal
     Private _IsBudgetRestricted As Boolean
     Private _Farms() As Farm
 
+    'Constructor
     Public Sub New(ByRef region As Region, ByVal isBudgetRestricted As Boolean)
         _QuoteID = GenerateQuoteID()
         _Region = region
@@ -27,6 +28,7 @@ Public Class Proposal
         _Farms = CalculateFarmsToConstruct()
     End Sub
 
+    'File storage 
     Private Function GenerateQuoteID() As String
         'Easy - use the date time numbers to form the quote ID
         Return "TODO"
@@ -63,16 +65,83 @@ Public Class Proposal
     End Property
 
 
-    Private Function CalculateFarmsToConstruct() As Farm()
-
+    'Total Cost
+    Public Function GetTotalCost() As Double
+        Throw New NotImplementedException()
     End Function
 
-    Public Function GetNumberOfFarms() As Integer
+    Public Function GetTotalCostTraditional() As Double
+        Throw New NotImplementedException()
+    End Function
+
+    Public Function GetTotalCostHydroponic() As Double
+        Throw New NotImplementedException()
+    End Function
+
+
+    'Fulfilled Food Quota
+    Public Function GetFulfilledFoodQuota() As Double
+        Throw New NotImplementedException()
+    End Function
+
+    Public Function GetFulfilledFoodQuotaByTraditional() As Double
+        Throw New NotImplementedException()
+    End Function
+
+    Public Function GetFulfilledFoodQuotaByHydroponic() As Double
+        Throw New NotImplementedException()
+    End Function
+
+
+    'Number of Farms
+    Public Function GetTotalFarms() As Integer
         Return _Farms.Length
     End Function
 
-    Public Function GenerateFoodRestrictedProposal() As Proposal
+    Public Function GetTotalTraditionalFarms() As Integer
+        Throw New NotImplementedException()
+    End Function
 
+    Public Function GetTotalHydroponicFarms() As Integer
+        Throw New NotImplementedException()
+    End Function
+
+
+    'Yield of Farms
+    Public Function GetTotalYieldOfFarms() As Integer
+        Throw New NotImplementedException()
+    End Function
+
+    Public Function GetTotalYieldOfTraditionalFarms() As Integer
+        Throw New NotImplementedException()
+    End Function
+
+    Public Function GetTotalYieldHydroponicFarms() As Integer
+        Throw New NotImplementedException()
+    End Function
+
+
+    'Size of Farms
+    Public Function GetTotalSizeOfFarms() As Integer
+        Throw New NotImplementedException()
+    End Function
+
+    Public Function GetTotalSizeOfTraditionalFarms() As Integer
+        Throw New NotImplementedException()
+    End Function
+
+    Public Function GetTotalSizeHydroponicFarms() As Integer
+        Throw New NotImplementedException()
+    End Function
+
+
+    'Calculation
+    Private Function CalculateFarmsToConstruct() As Farm()
+        Throw New NotImplementedException()
+    End Function
+
+    Public Function GenerateFoodRestrictedProposal() As Proposal
+        Throw New NotImplementedException()
     End Function
 
 

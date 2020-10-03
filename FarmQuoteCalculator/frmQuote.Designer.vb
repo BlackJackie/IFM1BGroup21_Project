@@ -69,7 +69,7 @@ Partial Class frmQuote
         Me.grdQuote.Location = New System.Drawing.Point(63, 139)
         Me.grdQuote.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.grdQuote.Name = "grdQuote"
-        Me.grdQuote.Rows = 16
+        Me.grdQuote.Rows = 21
         Me.grdQuote.Scrollbars = System.Windows.Forms.ScrollBars.Both
         Me.grdQuote.Size = New System.Drawing.Size(924, 445)
         Me.grdQuote.TabIndex = 3

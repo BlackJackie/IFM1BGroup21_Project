@@ -26,4 +26,8 @@ Public Class TraditionalFarm
     Public Overrides Sub CalculateConstructionCost()
         Throw New NotImplementedException()
     End Sub
+
+    Public Overrides Function GetFarmType() As String
+        Return "Traditional"
+    End Function
 End Class

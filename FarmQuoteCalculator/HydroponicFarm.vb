@@ -25,4 +25,8 @@ Public Class HydroponicFarm
     Public Overrides Sub CalculateConstructionCost()
         Throw New NotImplementedException()
     End Sub
+
+    Public Overrides Function GetFarmType() As String
+        Return "Hydroponic"
+    End Function
 End Class

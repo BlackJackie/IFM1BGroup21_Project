@@ -17,6 +17,7 @@ Public MustInherit Class Farm
     Protected _Plot As Plot
     Protected _Size As Double
     Protected _ConstructionCostPerSquareMeter As Double
+    Protected _ConstructionCost As Double
 
     'Constructor
     Public Sub New(ByRef plot As Plot, ByVal size As Double)
@@ -43,10 +44,17 @@ Public MustInherit Class Farm
         End Get
     End Property
 
+    Public ReadOnly Property Cost() As Double
+        Get
+            Return _ConstructionCost
+        End Get
+    End Property
+
 
     'Abstract Methods
     Public MustOverride Sub CalculateYield()
     Public MustOverride Sub CalculateConstructionCost()
+    Public MustOverride Function GetFarmType() As String
 
 
     'Methods
