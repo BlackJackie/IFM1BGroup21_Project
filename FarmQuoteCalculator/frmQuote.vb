@@ -21,11 +21,13 @@ Public Class frmQuote
     Public Sub New(ByRef region As Region)
         InitializeComponent()
         _proposal = New Proposal(region, True)
+        lblQuoteID.Text = _proposal.QuoteID
     End Sub
 
     Public Sub New(ByRef proposal As Proposal)
         InitializeComponent()
         Me._proposal = proposal
+        lblQuoteID.Text = _proposal.QuoteID
     End Sub
 
     Private Sub frmQuote_Load(sender As Object, e As EventArgs) Handles MyBase.Load

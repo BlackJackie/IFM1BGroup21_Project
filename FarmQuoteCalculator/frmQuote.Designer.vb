@@ -23,7 +23,7 @@ Partial Class frmQuote
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblQuoteID = New System.Windows.Forms.Label()
         Me.lblRestriction = New System.Windows.Forms.Label()
         Me.grdQuote = New UJGrid.UJGrid()
         Me.lblFarms = New System.Windows.Forms.Label()
@@ -42,15 +42,15 @@ Partial Class frmQuote
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Quote:"
         '
-        'Label2
+        'lblQuoteID
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(157, 26)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(141, 37)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "#123456"
+        Me.lblQuoteID.AutoSize = True
+        Me.lblQuoteID.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblQuoteID.Location = New System.Drawing.Point(157, 26)
+        Me.lblQuoteID.Name = "lblQuoteID"
+        Me.lblQuoteID.Size = New System.Drawing.Size(141, 37)
+        Me.lblQuoteID.TabIndex = 1
+        Me.lblQuoteID.Text = "#123456"
         '
         'lblRestriction
         '
@@ -125,7 +125,7 @@ Partial Class frmQuote
         Me.Controls.Add(Me.lblFarms)
         Me.Controls.Add(Me.grdQuote)
         Me.Controls.Add(Me.lblRestriction)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.lblQuoteID)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmQuote"
         Me.Text = "Development Quote"
@@ -135,7 +135,7 @@ Partial Class frmQuote
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents lblQuoteID As Label
     Friend WithEvents lblRestriction As Label
     Friend WithEvents grdQuote As UJGrid.UJGrid
     Friend WithEvents lblFarms As Label
