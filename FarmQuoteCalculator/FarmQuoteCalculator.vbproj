@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Farm.vb" />
+    <Compile Include="FileStorageManager.vb" />
     <Compile Include="frmLoadQuote.Designer.vb">
       <DependentUpon>frmLoadQuote.vb</DependentUpon>
     </Compile>
@@ -156,6 +157,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="quotes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

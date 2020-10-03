@@ -12,7 +12,7 @@ Option Strict On
 Option Explicit On
 Option Infer Off
 
-Public Class Proposal
+<Serializable()> Public Class Proposal
     Private _QuoteID As String
     Private _Region As Region
     Private _FoodQuota As Integer
@@ -30,9 +30,7 @@ Public Class Proposal
 
     'File storage 
     Private Function GenerateQuoteID() As String
-        'Easy - use the date time numbers to form the quote ID
-        Throw New NotImplementedException()
-        Return "TODO"
+        Return Format(Now, "yyyyMMddHHmmssff")
     End Function
 
     Public ReadOnly Property QuoteID() As String
@@ -343,11 +341,12 @@ Public Class Proposal
 
 
     'Calculation
-    Private Function CalculateFarmsToConstruct() As Farm()
-        Throw New NotImplementedException()
+    Public Function GenerateFoodRestrictedProposal() As Proposal
+        Dim new_proposal As New Proposal(_Region, False)
+        Return new_proposal
     End Function
 
-    Public Function GenerateFoodRestrictedProposal() As Proposal
+    Private Function CalculateFarmsToConstruct() As Farm()
         Throw New NotImplementedException()
     End Function
 

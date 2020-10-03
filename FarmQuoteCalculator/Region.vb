@@ -12,6 +12,7 @@ Option Strict On
 Option Explicit On
 Option Infer Off
 
+<Serializable()>
 Public Class Region
     Private _Description As String
     Private _Budget As Double

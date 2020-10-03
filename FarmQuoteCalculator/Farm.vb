@@ -12,6 +12,7 @@ Option Strict On
 Option Explicit On
 Option Infer Off
 
+<Serializable()>
 Public MustInherit Class Farm
     Protected _Yield As Double
     Protected _Plot As Plot

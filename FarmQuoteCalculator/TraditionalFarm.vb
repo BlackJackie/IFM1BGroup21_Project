@@ -12,6 +12,7 @@ Option Strict On
 Option Explicit On
 Option Infer Off
 
+<Serializable()>
 Public Class TraditionalFarm
     Inherits Farm
 
