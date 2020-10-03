@@ -13,11 +13,21 @@ Option Explicit On
 Option Infer Off
 
 Public Class frmLoadQuote
+    Public Sub New()
+        InitializeComponent()
+        'Reload all proposals from file
+    End Sub
+
     Private Sub frmLoadQuote_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 
     Private Sub btnLoad_Click(sender As Object, e As EventArgs) Handles btnLoad.Click
 
+    End Sub
+
+    Private Sub btnBackToMenu_Click(sender As Object, e As EventArgs) Handles btnBackToMenu.Click
+        frmMenu.Show()
+        Me.Hide()
     End Sub
 End Class

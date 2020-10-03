@@ -13,6 +13,13 @@ Option Explicit On
 Option Infer Off
 
 Public Class frmNewQuote
+
+    Private _region As Region
+
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub frmNewQuote_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -31,10 +38,13 @@ Public Class frmNewQuote
     End Sub
 
     Private Sub btnGenerateQuote_Click(sender As Object, e As EventArgs) Handles btnGenerateQuote.Click
-
+        Dim frmQuoteWindow As New frmQuote(_region)
+        frmMenu.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btnBackToMenu_Click(sender As Object, e As EventArgs) Handles btnBackToMenu.Click
-
+        frmMenu.Show()
+        Me.Hide()
     End Sub
 End Class

@@ -13,16 +13,20 @@ Option Explicit On
 Option Infer Off
 
 Public Class frmMenu
+
     Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 
     Private Sub btnNewQuote_Click(sender As Object, e As EventArgs) Handles btnNewQuote.Click
-
+        Dim frmNewQuoteWindow As New frmNewQuote()
+        frmNewQuoteWindow.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btnLoadQuote_Click(sender As Object, e As EventArgs) Handles btnLoadQuote.Click
-
+        frmLoadQuote.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
