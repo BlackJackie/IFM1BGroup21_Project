@@ -23,7 +23,7 @@ Partial Class frmNewQuote
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pnlRegion = New System.Windows.Forms.Panel()
         Me.btnAddRegion = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtBudget = New System.Windows.Forms.TextBox()
@@ -35,13 +35,13 @@ Partial Class frmNewQuote
         Me.txtRegionDescription = New System.Windows.Forms.TextBox()
         Me.lblDesc = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.pnlPlots = New System.Windows.Forms.Panel()
         Me.btnAddPlot = New System.Windows.Forms.Button()
-        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.pnlWater = New System.Windows.Forms.Panel()
         Me.rbtnWaterBad = New System.Windows.Forms.RadioButton()
         Me.rbtnWaterGood = New System.Windows.Forms.RadioButton()
         Me.lblRatings = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.pnlFertility = New System.Windows.Forms.Panel()
         Me.rbtnFertilityBad = New System.Windows.Forms.RadioButton()
         Me.rbtnFertilityGood = New System.Windows.Forms.RadioButton()
         Me.txtPlotSize = New System.Windows.Forms.TextBox()
@@ -54,10 +54,10 @@ Partial Class frmNewQuote
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btnGenerateQuote = New System.Windows.Forms.Button()
         Me.btnBackToMenu = New System.Windows.Forms.Button()
-        Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.Panel4.SuspendLayout()
-        Me.Panel3.SuspendLayout()
+        Me.pnlRegion.SuspendLayout()
+        Me.pnlPlots.SuspendLayout()
+        Me.pnlWater.SuspendLayout()
+        Me.pnlFertility.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -70,23 +70,23 @@ Partial Class frmNewQuote
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "New Quote"
         '
-        'Panel1
+        'pnlRegion
         '
-        Me.Panel1.Controls.Add(Me.btnAddRegion)
-        Me.Panel1.Controls.Add(Me.Label7)
-        Me.Panel1.Controls.Add(Me.txtBudget)
-        Me.Panel1.Controls.Add(Me.lblBudget)
-        Me.Panel1.Controls.Add(Me.txtWorkingPopulation)
-        Me.Panel1.Controls.Add(Me.lblWorkPeople)
-        Me.Panel1.Controls.Add(Me.txtPovertyPopulation)
-        Me.Panel1.Controls.Add(Me.lblNumPeople)
-        Me.Panel1.Controls.Add(Me.txtRegionDescription)
-        Me.Panel1.Controls.Add(Me.lblDesc)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Location = New System.Drawing.Point(32, 84)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(827, 315)
-        Me.Panel1.TabIndex = 1
+        Me.pnlRegion.Controls.Add(Me.btnAddRegion)
+        Me.pnlRegion.Controls.Add(Me.Label7)
+        Me.pnlRegion.Controls.Add(Me.txtBudget)
+        Me.pnlRegion.Controls.Add(Me.lblBudget)
+        Me.pnlRegion.Controls.Add(Me.txtWorkingPopulation)
+        Me.pnlRegion.Controls.Add(Me.lblWorkPeople)
+        Me.pnlRegion.Controls.Add(Me.txtPovertyPopulation)
+        Me.pnlRegion.Controls.Add(Me.lblNumPeople)
+        Me.pnlRegion.Controls.Add(Me.txtRegionDescription)
+        Me.pnlRegion.Controls.Add(Me.lblDesc)
+        Me.pnlRegion.Controls.Add(Me.Label2)
+        Me.pnlRegion.Location = New System.Drawing.Point(32, 84)
+        Me.pnlRegion.Name = "pnlRegion"
+        Me.pnlRegion.Size = New System.Drawing.Size(827, 315)
+        Me.pnlRegion.TabIndex = 1
         '
         'btnAddRegion
         '
@@ -180,24 +180,24 @@ Partial Class frmNewQuote
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Region"
         '
-        'Panel2
+        'pnlPlots
         '
-        Me.Panel2.Controls.Add(Me.btnAddPlot)
-        Me.Panel2.Controls.Add(Me.Panel4)
-        Me.Panel2.Controls.Add(Me.lblRatings)
-        Me.Panel2.Controls.Add(Me.Panel3)
-        Me.Panel2.Controls.Add(Me.txtPlotSize)
-        Me.Panel2.Controls.Add(Me.btnNewPlotToggle)
-        Me.Panel2.Controls.Add(Me.lblSize)
-        Me.Panel2.Controls.Add(Me.lblDetails)
-        Me.Panel2.Controls.Add(Me.txtPlotDescription)
-        Me.Panel2.Controls.Add(Me.lblPlotDesc)
-        Me.Panel2.Controls.Add(Me.grdPlots)
-        Me.Panel2.Controls.Add(Me.Label8)
-        Me.Panel2.Location = New System.Drawing.Point(32, 421)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(827, 706)
-        Me.Panel2.TabIndex = 2
+        Me.pnlPlots.Controls.Add(Me.btnAddPlot)
+        Me.pnlPlots.Controls.Add(Me.pnlWater)
+        Me.pnlPlots.Controls.Add(Me.lblRatings)
+        Me.pnlPlots.Controls.Add(Me.pnlFertility)
+        Me.pnlPlots.Controls.Add(Me.txtPlotSize)
+        Me.pnlPlots.Controls.Add(Me.btnNewPlotToggle)
+        Me.pnlPlots.Controls.Add(Me.lblSize)
+        Me.pnlPlots.Controls.Add(Me.lblDetails)
+        Me.pnlPlots.Controls.Add(Me.txtPlotDescription)
+        Me.pnlPlots.Controls.Add(Me.lblPlotDesc)
+        Me.pnlPlots.Controls.Add(Me.grdPlots)
+        Me.pnlPlots.Controls.Add(Me.Label8)
+        Me.pnlPlots.Location = New System.Drawing.Point(32, 421)
+        Me.pnlPlots.Name = "pnlPlots"
+        Me.pnlPlots.Size = New System.Drawing.Size(827, 706)
+        Me.pnlPlots.TabIndex = 2
         '
         'btnAddPlot
         '
@@ -208,14 +208,14 @@ Partial Class frmNewQuote
         Me.btnAddPlot.Text = "Add Plot"
         Me.btnAddPlot.UseVisualStyleBackColor = True
         '
-        'Panel4
+        'pnlWater
         '
-        Me.Panel4.Controls.Add(Me.rbtnWaterBad)
-        Me.Panel4.Controls.Add(Me.rbtnWaterGood)
-        Me.Panel4.Location = New System.Drawing.Point(470, 519)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(295, 99)
-        Me.Panel4.TabIndex = 16
+        Me.pnlWater.Controls.Add(Me.rbtnWaterBad)
+        Me.pnlWater.Controls.Add(Me.rbtnWaterGood)
+        Me.pnlWater.Location = New System.Drawing.Point(470, 519)
+        Me.pnlWater.Name = "pnlWater"
+        Me.pnlWater.Size = New System.Drawing.Size(295, 99)
+        Me.pnlWater.TabIndex = 16
         '
         'rbtnWaterBad
         '
@@ -249,14 +249,14 @@ Partial Class frmNewQuote
         Me.lblRatings.TabIndex = 16
         Me.lblRatings.Text = "Quailty Ratings:"
         '
-        'Panel3
+        'pnlFertility
         '
-        Me.Panel3.Controls.Add(Me.rbtnFertilityBad)
-        Me.Panel3.Controls.Add(Me.rbtnFertilityGood)
-        Me.Panel3.Location = New System.Drawing.Point(177, 519)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(271, 99)
-        Me.Panel3.TabIndex = 15
+        Me.pnlFertility.Controls.Add(Me.rbtnFertilityBad)
+        Me.pnlFertility.Controls.Add(Me.rbtnFertilityGood)
+        Me.pnlFertility.Location = New System.Drawing.Point(177, 519)
+        Me.pnlFertility.Name = "pnlFertility"
+        Me.pnlFertility.Size = New System.Drawing.Size(271, 99)
+        Me.pnlFertility.TabIndex = 15
         '
         'rbtnFertilityBad
         '
@@ -377,26 +377,26 @@ Partial Class frmNewQuote
         Me.ClientSize = New System.Drawing.Size(903, 1235)
         Me.Controls.Add(Me.btnBackToMenu)
         Me.Controls.Add(Me.btnGenerateQuote)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.pnlPlots)
+        Me.Controls.Add(Me.pnlRegion)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmNewQuote"
         Me.Text = "New Quote Parameters"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
+        Me.pnlRegion.ResumeLayout(False)
+        Me.pnlRegion.PerformLayout()
+        Me.pnlPlots.ResumeLayout(False)
+        Me.pnlPlots.PerformLayout()
+        Me.pnlWater.ResumeLayout(False)
+        Me.pnlWater.PerformLayout()
+        Me.pnlFertility.ResumeLayout(False)
+        Me.pnlFertility.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents pnlRegion As Panel
     Friend WithEvents btnAddRegion As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents txtBudget As TextBox
@@ -408,13 +408,13 @@ Partial Class frmNewQuote
     Friend WithEvents txtRegionDescription As TextBox
     Friend WithEvents lblDesc As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents pnlPlots As Panel
     Friend WithEvents btnAddPlot As Button
-    Friend WithEvents Panel4 As Panel
+    Friend WithEvents pnlWater As Panel
     Friend WithEvents rbtnWaterBad As RadioButton
     Friend WithEvents rbtnWaterGood As RadioButton
     Friend WithEvents lblRatings As Label
-    Friend WithEvents Panel3 As Panel
+    Friend WithEvents pnlFertility As Panel
     Friend WithEvents rbtnFertilityBad As RadioButton
     Friend WithEvents rbtnFertilityGood As RadioButton
     Friend WithEvents txtPlotSize As TextBox

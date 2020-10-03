@@ -33,9 +33,35 @@ Public Class Plot
         End Get
     End Property
 
+    Public ReadOnly Property WaterRatingDescription() As String
+        Get
+            Select Case _WaterRating
+                Case EnumCollection.Rating.HIGH
+                    Return "High"
+                Case EnumCollection.Rating.LOW
+                    Return "Low"
+                Case Else
+                    Return "Unknown"
+            End Select
+        End Get
+    End Property
+
     Public ReadOnly Property FertilityRating() As EnumCollection.Rating
         Get
             Return _FertilityRating
+        End Get
+    End Property
+
+    Public ReadOnly Property FertilityRatingDescription() As String
+        Get
+            Select Case _FertilityRating
+                Case EnumCollection.Rating.HIGH
+                    Return "High"
+                Case EnumCollection.Rating.LOW
+                    Return "Low"
+                Case Else
+                    Return "Unknown"
+            End Select
         End Get
     End Property
 
