@@ -22,12 +22,16 @@ Public Class frmQuote
         InitializeComponent()
         _proposal = New Proposal(region, True)
         lblQuoteID.Text = _proposal.QuoteID
+        refreshQuoteGrid()
+        refreshFarmGrid()
     End Sub
 
     Public Sub New(ByRef proposal As Proposal)
         InitializeComponent()
         Me._proposal = proposal
         lblQuoteID.Text = _proposal.QuoteID
+        refreshQuoteGrid()
+        refreshFarmGrid()
     End Sub
 
     Private Sub frmQuote_Load(sender As Object, e As EventArgs) Handles MyBase.Load
