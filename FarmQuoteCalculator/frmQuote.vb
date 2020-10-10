@@ -124,6 +124,8 @@ Public Class frmQuote
     End Sub
 
     Private Sub loadQuoteHeaders()
+        grdQuote.set_ColWidth(0, 200)
+        grdQuote.set_ColWidth(1, 200)
         setQuoteCell(0, 0, "Restriction")
         setQuoteCell(1, 0, "Region")
         setQuoteCell(2, 0, "Allocated Budget")
