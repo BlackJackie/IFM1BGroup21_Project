@@ -28,6 +28,7 @@ Partial Class frmLoadQuote
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.btnLoad = New System.Windows.Forms.Button()
         Me.btnBackToMenu = New System.Windows.Forms.Button()
+        Me.btnCleanFile = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -86,11 +87,21 @@ Partial Class frmLoadQuote
         Me.btnBackToMenu.Text = "Back To Menu"
         Me.btnBackToMenu.UseVisualStyleBackColor = True
         '
+        'btnCleanFile
+        '
+        Me.btnCleanFile.Location = New System.Drawing.Point(32, 449)
+        Me.btnCleanFile.Name = "btnCleanFile"
+        Me.btnCleanFile.Size = New System.Drawing.Size(159, 33)
+        Me.btnCleanFile.TabIndex = 6
+        Me.btnCleanFile.Text = "Clear Storage"
+        Me.btnCleanFile.UseVisualStyleBackColor = True
+        '
         'frmLoadQuote
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(855, 494)
+        Me.Controls.Add(Me.btnCleanFile)
         Me.Controls.Add(Me.btnBackToMenu)
         Me.Controls.Add(Me.btnLoad)
         Me.Controls.Add(Me.TextBox1)
@@ -110,4 +121,5 @@ Partial Class frmLoadQuote
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents btnLoad As Button
     Friend WithEvents btnBackToMenu As Button
+    Friend WithEvents btnCleanFile As Button
 End Class

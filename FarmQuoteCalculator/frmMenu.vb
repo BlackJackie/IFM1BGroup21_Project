@@ -16,7 +16,8 @@ Public Class frmMenu
 
     Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim fileManager As New FileStorageManager()
-        fileManager.startFreshFile()
+        'fileManager.startFreshFile()
+        'fileManager.test()
     End Sub
 
     Private Sub btnNewQuote_Click(sender As Object, e As EventArgs) Handles btnNewQuote.Click

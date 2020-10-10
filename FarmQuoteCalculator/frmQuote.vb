@@ -70,6 +70,11 @@ Public Class frmQuote
         Me.Hide()
     End Sub
 
+    Private Sub btnSaveQuote_Click(sender As Object, e As EventArgs) Handles btnSaveQuote.Click
+        Dim fileManager As FileStorageManager = New FileStorageManager()
+        fileManager.SaveQuote(_proposal)
+    End Sub
+
 
     'Helper Methods
     'Helper Methods - Quote Grid Control

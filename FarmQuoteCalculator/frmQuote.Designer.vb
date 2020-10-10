@@ -31,6 +31,7 @@ Partial Class frmQuote
         Me.btnDone = New System.Windows.Forms.Button()
         Me.btnGenerateFoodRestrictedQuote = New System.Windows.Forms.Button()
         Me.btnGenerateBudgetRestrictedQuote = New System.Windows.Forms.Button()
+        Me.btnSaveQuote = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -124,11 +125,21 @@ Partial Class frmQuote
         Me.btnGenerateBudgetRestrictedQuote.Text = "Generate Budget Restricted Quote"
         Me.btnGenerateBudgetRestrictedQuote.UseVisualStyleBackColor = True
         '
+        'btnSaveQuote
+        '
+        Me.btnSaveQuote.Location = New System.Drawing.Point(802, 32)
+        Me.btnSaveQuote.Name = "btnSaveQuote"
+        Me.btnSaveQuote.Size = New System.Drawing.Size(185, 35)
+        Me.btnSaveQuote.TabIndex = 23
+        Me.btnSaveQuote.Text = "Save Quote"
+        Me.btnSaveQuote.UseVisualStyleBackColor = True
+        '
         'frmQuote
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1041, 1026)
+        Me.Controls.Add(Me.btnSaveQuote)
         Me.Controls.Add(Me.btnGenerateBudgetRestrictedQuote)
         Me.Controls.Add(Me.btnGenerateFoodRestrictedQuote)
         Me.Controls.Add(Me.btnDone)
@@ -154,4 +165,5 @@ Partial Class frmQuote
     Friend WithEvents btnDone As Button
     Friend WithEvents btnGenerateFoodRestrictedQuote As Button
     Friend WithEvents btnGenerateBudgetRestrictedQuote As Button
+    Friend WithEvents btnSaveQuote As Button
 End Class
