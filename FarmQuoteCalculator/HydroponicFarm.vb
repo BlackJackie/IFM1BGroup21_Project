@@ -16,15 +16,42 @@ Option Infer Off
 Public Class HydroponicFarm
     Inherits Farm
 
-    Public Sub New(ByRef plot As Plot, ByVal size As Double)
-        MyBase.New(plot, size)
+    Public Sub New(ByRef plot As Plot, ByVal limitToMeet As Double, ByVal isBudgetRestricted As Boolean)
+        MyBase.New(plot)
+        _ConstructionCostPerSquareMeter = 20.0
+        _YieldPerSquareMeter = 1
+        CalculateOptimalFarmSize(limitToMeet, isBudgetRestricted)
+        CalculateConstructionCost()
+        CalculateYield()
     End Sub
-    Public Overrides Sub CalculateYield()
-        Throw New NotImplementedException()
+    Protected Overrides Sub CalculateYield()
+        _Yield = _YieldPerSquareMeter * _Size
     End Sub
 
-    Public Overrides Sub CalculateConstructionCost()
-        Throw New NotImplementedException()
+    Protected Overrides Sub CalculateConstructionCost()
+        _ConstructionCost = _ConstructionCostPerSquareMeter * _Size
+    End Sub
+
+    Protected Overrides Sub CalculateOptimalFarmSize(limitToMeet As Double, isBudgetRestricted As Boolean)
+        If isBudgetRestricted Then
+            'First attempt a full plot size farm
+            _Size = _Plot.SurfaceArea
+            CalculateConstructionCost()
+
+            If (_ConstructionCost > limitToMeet) Then
+                'Cost is bigger so make the farm smaller limited to cost
+                _Size = limitToMeet / _ConstructionCostPerSquareMeter
+            End If
+        Else
+            'First attempt a full plot size farm
+            _Size = _Plot.SurfaceArea
+            CalculateYield()
+
+            If (_Yield > limitToMeet) Then
+                'Yield is too big, reduce farm size to fit yield exactly
+                _Size = (limitToMeet) / (_YieldPerSquareMeter)
+            End If
+        End If
     End Sub
 
     Public Overrides Function GetFarmType() As String

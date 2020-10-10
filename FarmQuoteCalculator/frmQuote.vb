@@ -30,6 +30,17 @@ Public Class frmQuote
         InitializeComponent()
         Me._proposal = proposal
         lblQuoteID.Text = _proposal.QuoteID
+
+        If proposal.IsBudgetRestricted Then
+            lblRestriction.Text = "Budget Restricted Quote"
+            btnGenerateBudgetRestrictedQuote.Enabled = False
+            btnGenerateFoodRestrictedQuote.Enabled = True
+        Else
+            lblRestriction.Text = "Food Restricted Quote"
+            btnGenerateBudgetRestrictedQuote.Enabled = True
+            btnGenerateFoodRestrictedQuote.Enabled = False
+        End If
+
         refreshQuoteGrid()
         refreshFarmGrid()
     End Sub
@@ -40,8 +51,15 @@ Public Class frmQuote
 
 
     'Buttons
-    Private Sub btnNextQuote_Click(sender As Object, e As EventArgs) Handles btnNextQuote.Click
+    Private Sub btnGenerateFoodRestrictedQuote_Click(sender As Object, e As EventArgs) Handles btnGenerateFoodRestrictedQuote.Click
         Dim next_proposal As Proposal = _proposal.GenerateFoodRestrictedProposal()
+        Dim frmQuoteWindow As New frmQuote(next_proposal)
+        frmQuoteWindow.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnGenerateBudgetRestrictedQuote_Click(sender As Object, e As EventArgs) Handles btnGenerateBudgetRestrictedQuote.Click
+        Dim next_proposal As Proposal = _proposal.GenerateBudgetRestrictedProposal()
         Dim frmQuoteWindow As New frmQuote(next_proposal)
         frmQuoteWindow.Show()
         Me.Hide()

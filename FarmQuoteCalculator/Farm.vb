@@ -19,11 +19,11 @@ Public MustInherit Class Farm
     Protected _Size As Double
     Protected _ConstructionCostPerSquareMeter As Double
     Protected _ConstructionCost As Double
+    Protected _YieldPerSquareMeter As Double
 
     'Constructor
-    Public Sub New(ByRef plot As Plot, ByVal size As Double)
+    Public Sub New(ByRef plot As Plot)
         _Plot = plot
-        _Size = size
     End Sub
 
     'Properties
@@ -53,11 +53,11 @@ Public MustInherit Class Farm
 
 
     'Abstract Methods
-    Public MustOverride Sub CalculateYield()
-    Public MustOverride Sub CalculateConstructionCost()
+    Protected MustOverride Sub CalculateYield()
+    Protected MustOverride Sub CalculateConstructionCost()
     Public MustOverride Function GetFarmType() As String
     Public MustOverride Function GetFarmTypeEnum() As EnumCollection.FarmType
-
+    Protected MustOverride Sub CalculateOptimalFarmSize(ByVal limitToMeet As Double, ByVal isBudgetRestricted As Boolean)
 
     'Methods
     Public Function GetMarketedYield() As Double

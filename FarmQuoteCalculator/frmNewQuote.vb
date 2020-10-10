@@ -69,12 +69,14 @@ Public Class frmNewQuote
             _region.AddPlot(txtPlotDescription.Text, waterRating, soilRating, CDbl(txtPlotSize.Text))
             refreshGrid()
             btnGenerateQuote.Enabled = True
+
+            togglePlotInput()
         End If
     End Sub
 
     Private Sub btnGenerateQuote_Click(sender As Object, e As EventArgs) Handles btnGenerateQuote.Click
         Dim frmQuoteWindow As New frmQuote(_region)
-        frmMenu.Show()
+        frmQuoteWindow.Show()
         Me.Hide()
     End Sub
 

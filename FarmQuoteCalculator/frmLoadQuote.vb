@@ -13,9 +13,15 @@ Option Explicit On
 Option Infer Off
 
 Public Class frmLoadQuote
+
+    Private proposals() As Proposal
+    Private fileManager As FileStorageManager
+
     Public Sub New()
         InitializeComponent()
         'Reload all proposals from file
+        fileManager = New FileStorageManager()
+        proposals = fileManager.LoadQuotes()
     End Sub
 
     Private Sub frmLoadQuote_Load(sender As Object, e As EventArgs) Handles MyBase.Load

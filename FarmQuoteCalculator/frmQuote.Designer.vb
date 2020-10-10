@@ -29,7 +29,8 @@ Partial Class frmQuote
         Me.lblFarms = New System.Windows.Forms.Label()
         Me.grdFarms = New UJGrid.UJGrid()
         Me.btnDone = New System.Windows.Forms.Button()
-        Me.btnNextQuote = New System.Windows.Forms.Button()
+        Me.btnGenerateFoodRestrictedQuote = New System.Windows.Forms.Button()
+        Me.btnGenerateBudgetRestrictedQuote = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -105,21 +106,31 @@ Partial Class frmQuote
         Me.btnDone.Text = "Done"
         Me.btnDone.UseVisualStyleBackColor = True
         '
-        'btnNextQuote
+        'btnGenerateFoodRestrictedQuote
         '
-        Me.btnNextQuote.Location = New System.Drawing.Point(62, 958)
-        Me.btnNextQuote.Name = "btnNextQuote"
-        Me.btnNextQuote.Size = New System.Drawing.Size(392, 35)
-        Me.btnNextQuote.TabIndex = 20
-        Me.btnNextQuote.Text = "Generate Food Restricted Quote"
-        Me.btnNextQuote.UseVisualStyleBackColor = True
+        Me.btnGenerateFoodRestrictedQuote.Location = New System.Drawing.Point(62, 958)
+        Me.btnGenerateFoodRestrictedQuote.Name = "btnGenerateFoodRestrictedQuote"
+        Me.btnGenerateFoodRestrictedQuote.Size = New System.Drawing.Size(296, 35)
+        Me.btnGenerateFoodRestrictedQuote.TabIndex = 20
+        Me.btnGenerateFoodRestrictedQuote.Text = "Generate Food Restricted Quote"
+        Me.btnGenerateFoodRestrictedQuote.UseVisualStyleBackColor = True
+        '
+        'btnGenerateBudgetRestrictedQuote
+        '
+        Me.btnGenerateBudgetRestrictedQuote.Location = New System.Drawing.Point(385, 958)
+        Me.btnGenerateBudgetRestrictedQuote.Name = "btnGenerateBudgetRestrictedQuote"
+        Me.btnGenerateBudgetRestrictedQuote.Size = New System.Drawing.Size(296, 35)
+        Me.btnGenerateBudgetRestrictedQuote.TabIndex = 21
+        Me.btnGenerateBudgetRestrictedQuote.Text = "Generate Budget Restricted Quote"
+        Me.btnGenerateBudgetRestrictedQuote.UseVisualStyleBackColor = True
         '
         'frmQuote
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1041, 1026)
-        Me.Controls.Add(Me.btnNextQuote)
+        Me.Controls.Add(Me.btnGenerateBudgetRestrictedQuote)
+        Me.Controls.Add(Me.btnGenerateFoodRestrictedQuote)
         Me.Controls.Add(Me.btnDone)
         Me.Controls.Add(Me.grdFarms)
         Me.Controls.Add(Me.lblFarms)
@@ -141,5 +152,6 @@ Partial Class frmQuote
     Friend WithEvents lblFarms As Label
     Friend WithEvents grdFarms As UJGrid.UJGrid
     Friend WithEvents btnDone As Button
-    Friend WithEvents btnNextQuote As Button
+    Friend WithEvents btnGenerateFoodRestrictedQuote As Button
+    Friend WithEvents btnGenerateBudgetRestrictedQuote As Button
 End Class

@@ -66,12 +66,38 @@ Public Class Region
     End Function
 
     Public Function CalculateFoodQuota() As Integer
-
+        Dim food As Integer = _WorkForcePopulation * 3
+        food += (_PovertyPopulation - _WorkForcePopulation) * 2
+        Return food
     End Function
 
     Public Sub AddPlot(ByVal description As String,
                    ByVal waterRating As EnumCollection.Rating,
                    ByVal fertilityRating As EnumCollection.Rating, ByVal surfaceArea As Double)
+        If IsNothing(_Plots) Then
+            ReDim _Plots(0)
+            _Plots(0) = New Plot(description, waterRating, fertilityRating, surfaceArea)
 
+        Else
+            Dim new_index As Integer = _Plots.Length
+            ReDim Preserve _Plots(new_index)
+            _Plots(new_index) = New Plot(description, waterRating, fertilityRating, surfaceArea)
+        End If
     End Sub
+
+    Public Function clonePlots() As Plot()
+        Dim plots() As Plot
+        Dim i As Integer
+        For i = 0 To (_Plots.Length - 1)
+            If IsNothing(plots) Then
+                ReDim plots(0)
+                plots(0) = New Plot(_Plots(i).Description, _Plots(i).WaterRating, _Plots(i).FertilityRating, _Plots(i).SurfaceArea)
+            Else
+                Dim new_index As Integer = plots.Length
+                ReDim Preserve plots(new_index)
+                plots(new_index) = New Plot(_Plots(i).Description, _Plots(i).WaterRating, _Plots(i).FertilityRating, _Plots(i).SurfaceArea)
+            End If
+        Next
+        Return plots
+    End Function
 End Class

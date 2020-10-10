@@ -1,4 +1,7 @@
-﻿' *****************************************************************
+﻿Option Strict On
+Option Explicit On
+Option Infer Off
+' *****************************************************************
 ' Team Number: 21
 ' Team Member 1 Details: Ntsie, KC (220061693)
 ' Team Member 2 Details: Nchaupa, F (200915560)
@@ -8,9 +11,7 @@
 ' Class name: Proposal
 ' *****************************************************************
 
-Option Strict On
-Option Explicit On
-Option Infer Off
+Imports System.Security
 
 <Serializable()> Public Class Proposal
     Private _QuoteID As String
@@ -340,15 +341,187 @@ Option Infer Off
     End Function
 
 
-    'Calculation
+    'Calculations
     Public Function GenerateFoodRestrictedProposal() As Proposal
         Dim new_proposal As New Proposal(_Region, False)
         Return new_proposal
     End Function
 
-    Private Function CalculateFarmsToConstruct() As Farm()
-        Throw New NotImplementedException()
+    Public Function GenerateBudgetRestrictedProposal() As Proposal
+        Dim new_proposal As New Proposal(_Region, True)
+        Return new_proposal
     End Function
+
+    Private Function removePlotFromArray(ByRef plots As Plot(), ByVal index As Integer) As Plot()
+        Dim new_max_index As Integer = plots.Length - 2
+        Dim old_max_index As Integer = plots.Length - 1
+        Dim new_plots(new_max_index) As Plot
+
+        Dim i_old As Integer
+        Dim i_new As Integer = 0
+
+        For i_old = 0 To old_max_index
+            If Not (i_old = index) Then
+                new_plots(i_new) = plots(i_old)
+                i_new += 1
+            End If
+        Next
+
+        Return new_plots
+    End Function
+
+    Private Function CalculateFarmsToConstruct() As Farm()
+        Console.WriteLine("Starting calculation...")
+        Dim farms() As Farm
+        Dim limit_left As Double
+
+        If (_IsBudgetRestricted) Then
+            limit_left = _Region.Budget
+            Console.WriteLine("is budget restricted")
+        Else
+            limit_left = _Region.CalculateFoodQuota()
+            Console.WriteLine("is food restricted")
+        End If
+
+        Dim plots() As Plot = _Region.clonePlots()
+        Dim land_left As Boolean = True
+
+        Dim high_value_land_left As Boolean = True
+        Dim medium_value_land_left As Boolean = True
+        Dim low_value_land_left As Boolean = True
+
+        'First - populate TRADITIONAL farms on high value land
+        Console.WriteLine("...Calculating traditional farms on high value land")
+        While (limit_left > 0) And (high_value_land_left)
+            Dim i As Integer
+            Dim land_found As Boolean = False
+
+            For i = 0 To (plots.Length - 1)
+                If ((plots(i).FertilityRating = EnumCollection.Rating.HIGH) And (plots(i).WaterRating = EnumCollection.Rating.HIGH)) Then
+
+                    land_found = True
+                    Dim farm As Farm = New TraditionalFarm(plots(i), limit_left, _IsBudgetRestricted)
+                    plots = removePlotFromArray(plots, i)
+                    addFarmToFarmArray(farms, farm)
+
+                    If (_IsBudgetRestricted) Then
+                        limit_left -= farm.Cost
+                    Else
+                        limit_left -= farm.Yield
+                    End If
+                    Exit For
+                End If
+            Next
+
+            Console.WriteLine("......limit left = " & CStr(limit_left))
+
+            If Not (land_found) Then
+                high_value_land_left = False
+                Console.WriteLine("......No more high value land")
+            End If
+
+        End While
+
+        'Second - If budget left, populate TRADITIONAL farms to medium value land
+        If (limit_left > 0) Then
+            Console.WriteLine("...Calculating traditional farms on medium value land")
+            While (limit_left > 0) And (medium_value_land_left)
+                Dim i As Integer
+                Dim land_found As Boolean = False
+
+                For i = 0 To (plots.Length - 1)
+                    If ((plots(i).FertilityRating = EnumCollection.Rating.HIGH) And (plots(i).WaterRating = EnumCollection.Rating.LOW)) Or
+                        ((plots(i).FertilityRating = EnumCollection.Rating.LOW) And (plots(i).WaterRating = EnumCollection.Rating.HIGH)) Then
+
+                        land_found = True
+                        Dim farm As Farm = New TraditionalFarm(plots(i), limit_left, _IsBudgetRestricted)
+                        plots = removePlotFromArray(plots, i)
+                        addFarmToFarmArray(farms, farm)
+
+                        If (_IsBudgetRestricted) Then
+                            limit_left -= farm.Cost
+                        Else
+                            limit_left -= farm.Yield
+                        End If
+
+                        Exit For
+                    End If
+                Next
+
+                Console.WriteLine("......limit left = " & CStr(limit_left))
+
+                If Not (land_found) Then
+                    medium_value_land_left = False
+                    Console.WriteLine("......No more medium value land")
+                End If
+
+            End While
+
+            'Third - If budget left, populate HYDROPONICS farms to low value land
+            If (limit_left > 0) Then
+                Console.WriteLine("...Calculating hydroponic farms on low value land")
+                While (limit_left > 0) And (low_value_land_left)
+                    Dim i As Integer
+                    Dim land_found As Boolean = False
+
+                    For i = 0 To (plots.Length - 1)
+                        If ((plots(i).FertilityRating = EnumCollection.Rating.LOW) And (plots(i).WaterRating = EnumCollection.Rating.LOW)) Then
+
+                            land_found = True
+                            Dim farm As Farm = New HydroponicFarm(plots(i), limit_left, _IsBudgetRestricted)
+                            plots = removePlotFromArray(plots, i)
+                            addFarmToFarmArray(farms, farm)
+
+                            If (_IsBudgetRestricted) Then
+                                limit_left -= farm.Cost
+                            Else
+                                limit_left -= farm.Yield
+                            End If
+
+                            Exit For
+                        End If
+                    Next
+
+                    Console.WriteLine("......limit left = " & CStr(limit_left))
+
+                    If Not (land_found) Then
+                        low_value_land_left = False
+                        Console.WriteLine("......No more low value land")
+                    End If
+
+                End While
+
+
+            Else
+                'Since there is no more budget left
+                Return farms
+            End If
+
+        Else
+            'Since there is no more budget left
+            Return farms
+        End If
+
+        'Have budget left but no more land
+        'TODO - Optimise medium value farm with hydroponics
+        Return farms
+
+
+
+        'Throw New NotImplementedException()
+    End Function
+
+
+    Private Sub addFarmToFarmArray(ByRef farm_array As Farm(), farm As Farm)
+        If IsNothing(farm_array) Then
+            ReDim farm_array(0)
+            farm_array(0) = farm
+        Else
+            Dim index As Integer = farm_array.Length
+            ReDim Preserve farm_array(index)
+            farm_array(index) = farm
+        End If
+    End Sub
 
 
 
