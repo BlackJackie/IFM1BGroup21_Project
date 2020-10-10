@@ -66,6 +66,7 @@ Partial Class frmQuote
         '
         'grdQuote
         '
+        Me.grdQuote.AutoSize = True
         Me.grdQuote.FixedCols = 1
         Me.grdQuote.FixedRows = 1
         Me.grdQuote.Location = New System.Drawing.Point(63, 139)

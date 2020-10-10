@@ -25,7 +25,7 @@ Partial Class frmLoadQuote
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grdQuotes = New UJGrid.UJGrid()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtQuoteID = New System.Windows.Forms.TextBox()
         Me.btnLoad = New System.Windows.Forms.Button()
         Me.btnBackToMenu = New System.Windows.Forms.Button()
         Me.btnCleanFile = New System.Windows.Forms.Button()
@@ -43,6 +43,7 @@ Partial Class frmLoadQuote
         '
         'grdQuotes
         '
+        Me.grdQuotes.AutoSize = True
         Me.grdQuotes.Cols = 6
         Me.grdQuotes.FixedCols = 0
         Me.grdQuotes.FixedRows = 1
@@ -62,12 +63,12 @@ Partial Class frmLoadQuote
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Quote ID:"
         '
-        'TextBox1
+        'txtQuoteID
         '
-        Me.TextBox1.Location = New System.Drawing.Point(123, 381)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(479, 26)
-        Me.TextBox1.TabIndex = 3
+        Me.txtQuoteID.Location = New System.Drawing.Point(123, 381)
+        Me.txtQuoteID.Name = "txtQuoteID"
+        Me.txtQuoteID.Size = New System.Drawing.Size(479, 26)
+        Me.txtQuoteID.TabIndex = 3
         '
         'btnLoad
         '
@@ -104,7 +105,7 @@ Partial Class frmLoadQuote
         Me.Controls.Add(Me.btnCleanFile)
         Me.Controls.Add(Me.btnBackToMenu)
         Me.Controls.Add(Me.btnLoad)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtQuoteID)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.grdQuotes)
         Me.Controls.Add(Me.Label1)
@@ -118,7 +119,7 @@ Partial Class frmLoadQuote
     Friend WithEvents Label1 As Label
     Friend WithEvents grdQuotes As UJGrid.UJGrid
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtQuoteID As TextBox
     Friend WithEvents btnLoad As Button
     Friend WithEvents btnBackToMenu As Button
     Friend WithEvents btnCleanFile As Button

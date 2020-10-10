@@ -30,7 +30,8 @@ Public Class frmLoadQuote
     End Sub
 
     Private Sub btnLoad_Click(sender As Object, e As EventArgs) Handles btnLoad.Click
-
+        Dim input As String = txtQuoteID.Text
+        openQuote(input)
     End Sub
 
     Private Sub btnBackToMenu_Click(sender As Object, e As EventArgs) Handles btnBackToMenu.Click
@@ -43,10 +44,31 @@ Public Class frmLoadQuote
     End Sub
 
     'Helper Methods
+    Private Sub showMessage(ByVal message As String)
+        MessageBox.Show(message)
+    End Sub
+
     Private Sub setQuoteCell(ByVal row As Integer, ByVal col As Integer, ByVal value As String)
         grdQuotes.Row = row
         grdQuotes.Col = col
         grdQuotes.Text = value
+    End Sub
+
+    Private Sub openQuote(ByVal id As String)
+        If IsNothing(proposals) Then
+            showMessage("There are no proposals to load.")
+        Else
+            Dim found_quote As Boolean = False
+            Dim i As Integer
+
+            For i = 0 To proposals.Length - 1
+                If proposals(i).QuoteID = id Then
+                    Dim frmQuoteWindow As New frmQuote(proposals(i))
+                    frmQuoteWindow.Show()
+                    Me.Hide()
+                End If
+            Next
+        End If
     End Sub
 
     Private Sub loadQuoteGridHeaders()
@@ -77,6 +99,8 @@ Public Class frmLoadQuote
     Private Sub refreshQuotesGrid()
         grdQuotes.Rows = 1
         grdQuotes.Cols = 6
+        grdQuotes.set_ColWidth(0, 200)
+        grdQuotes.set_ColWidth(1, 200)
         grdQuotes.FixedRows = 1
 
         loadQuoteGridHeaders()
