@@ -120,7 +120,7 @@ Imports System.Security
         Dim index As Integer
 
         For index = 0 To numFarms - 1
-            total_charity_food += Farm(index).GetCharityYield()
+            total_charity_food += Farm(index).Yield
         Next
 
         Return total_charity_food

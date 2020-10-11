@@ -105,10 +105,12 @@ Public Class frmLoadQuote
 
         loadQuoteGridHeaders()
 
-        Dim num_proposals As Integer = proposals.Length
-        Dim i As Integer
-        For i = 0 To num_proposals - 1
-            addQuoteToGrid(proposals(i))
-        Next
+        If Not IsNothing(proposals) Then
+            Dim num_proposals As Integer = proposals.Length
+            Dim i As Integer
+            For i = 0 To num_proposals - 1
+                addQuoteToGrid(proposals(i))
+            Next
+        End If
     End Sub
 End Class
